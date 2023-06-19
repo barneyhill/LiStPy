@@ -9,7 +9,7 @@ This library contains a minimal and vectorised implementation of the Li and Step
 - Automatic differentation upon the HMM parameters.
 
 ## TODO
-- Testing, currently the results only look plausible - will add tests...
+- Testing, currently the results only look plausible - will add tests.
 
 ## Example
 
@@ -45,3 +45,9 @@ p, d = model.run(target_l=10)
 listax.utils.plot_ts_tmrca(ts, l=10)
 listax.utils.plot_model_distances(d)
 ```
+
+![image](https://github.com/barneyhill/listax/assets/43707014/7fd991e9-7969-41e5-9122-0ffcd2a9da30)
+![image](https://github.com/barneyhill/listax/assets/43707014/c3d43eea-411e-4a97-8717-eb676f3a0611)
+
+The distance matrix seems plausible... testing and many bug fixes coming...
+
