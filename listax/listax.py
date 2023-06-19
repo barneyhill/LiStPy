@@ -36,7 +36,7 @@ class LiStephens():
 
             return theta
 
-    def forward(self, alpha, target_l):
+    def forward(self, target_l):
         # alpha: (L, N)
         # Forward recursion
 
@@ -66,7 +66,7 @@ class LiStephens():
 
         return alpha
 
-    def backward(self, beta, target_l):
+    def backward(self, target_l):
         # Backward recursion
 
         def body(l, beta):
@@ -117,13 +117,9 @@ class LiStephens():
 
     def run(self, target_l):
 
-        # Allocate memory for alpha and beta
-        alpha = jnp.zeros((self.N, self.N))
-        beta = jnp.zeros((self.N, self.N))
-
         # Run forward and backward recursions
-        alpha = self.forward(alpha, target_l)
-        beta = self.backward(beta, target_l)
+        alpha = self.forward(target_l)
+        beta = self.backward(target_l)
 
         # Calculate posterior probabilities
         p = self.compute_posterior_prob(alpha, beta)
