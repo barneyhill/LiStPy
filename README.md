@@ -1,11 +1,11 @@
 # LiStax
 ## Minimal Vectorised Li and Stephens implementation in JAX.
 
-This library contains a minimal and vectorised implementation of the Li and Stephens model as described in the (2022 `kalis` paper)[https://arxiv.org/abs/2212.11403]. 
+This library contains a minimal and vectorised implementation of the Li and Stephens model as described in the [2022 `kalis` paper](https://arxiv.org/abs/2212.11403). 
 
 ## Goals
 - A simple formulation of the Li and Stephens model to showcase both the model itself and the JAX library.
-- A general platform to investigate O(N^2) -> O(N) optimisations, (see recent paper)[https://www.biorxiv.org/content/10.1101/2023.05.19.541517v1]
+- A general platform to investigate O(N^2) -> O(N) optimisations, [see recent paper](https://www.biorxiv.org/content/10.1101/2023.05.19.541517v1)
 - Automatic differentation upon the HMM parameters.
 
 ## TODO
