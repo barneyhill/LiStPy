@@ -1,12 +1,13 @@
 # LiStax
-## Minimal Vectorised Li and Stephens implementation in JAX.
+## Minimal and vectorised Li and Stephens implementation in JAX.
 
 This library contains a minimal and vectorised implementation of the Li and Stephens model as described in the [2022 `kalis` paper](https://arxiv.org/abs/2212.11403). 
 
 ## Goals
 - A simple formulation of the Li and Stephens model to showcase both the model itself and the JAX library.
 - A general platform to investigate O(N^2) -> O(N) optimisations, [see recent paper](https://www.biorxiv.org/content/10.1101/2023.05.19.541517v1)
-- Automatic differentation upon the HMM parameters.
+- Automatic differentation of model parameters.
+- Automatic CPU/GPU/TPU support 🚀.
 
 ## TODO
 - Testing, currently the results only look plausible - will add tests.
@@ -16,14 +17,9 @@ This library contains a minimal and vectorised implementation of the Li and Step
 ```
 import listax
 
-key = jax.random.PRNGKey(0)
-
-# generate random haplotype matrix L=400 by N=300
-# with variants in rows and haplotypes in columns
+# msprime parameters
 L, N = 1000, 50
-
-# mutation rate (across all L)
-mu = 1e-6
+mu = 1e-6 # mutation rate
 population_size = 100000
 
 ts = listax.utils.simulate_ts(sample_size = N,
