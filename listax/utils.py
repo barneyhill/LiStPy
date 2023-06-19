@@ -44,24 +44,11 @@ def get_distances(ts):
     
     return np.array(distances)
 
-def ts_to_array(ts, chunks=None, samples=None, phased=False):
-    """
-    Convert the specified tskit tree sequence into an array.
-    Note this just generates haploids for now - see the note above
-    in simulate_ts.
-    """
-    if samples is None:
-        samples = ts.samples()
-
-    genotypes = []
-
-    for var in ts.variants(samples=samples):
-        genotypes.append(var.genotypes)
-
-    return jnp.array(genotypes)
 
 def plot_ts_tmrca(ts, l):
     site_pos = list(ts.variants())[l].site.position
+
+    N = ts.num_samples
 
     tmrca = np.zeros((N,N))
     for i in range(N):
