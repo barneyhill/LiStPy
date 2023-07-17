@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def get_ts_matrix(ts):
     array = ts.genotype_matrix()
 
-    return torch.from_numpy(array[:, np.sum(array, axis=0) > 1])
+    return torch.from_numpy(array[:, np.sum(array, axis=0) > 1]).type(torch.uint8)
 
 def get_distances(ts):
     positions = [variant.position for variant in ts.variants()]
